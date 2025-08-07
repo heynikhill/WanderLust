@@ -1,0 +1,115 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+</head>
+<body>
+    <h3>Create a new lising</h3>
+    <form method="POST" action="/listings"> -->
+        <!-- method1 -->
+        <!-- <input name="title" placeholder="enter title" type="text"> -->
+         <!-- method 2: variable ko object ki  key bana de  i.e.-->
+   <!-- <input name="listing[title]" placeholder="enter title" type="text">  
+        <br><br>
+        <textarea name="listing[description]" placeholder="enter description"></textarea>
+        <br><br>
+        <input name="listing[image]" placeholder="enter image url/link" type="text">
+        <br><br>
+        <input name="listing[price]" placeholder="enter price" type="number">
+        <br><br>
+        <input name="listing[location]" placeholder="enter location" type="text">
+        <br><br>
+         <input name="listing[country]" placeholder="enter your country" type="text">
+        <br><br>
+        <button>Add</button>
+    </form>
+</body>
+</html> -->
+
+
+
+<!-- lecture 5: we have modified the new.ejs page like -->
+ <!-- we have to use the first line that run or support thr boilerplate code that has ejs Mate ,bootstaps ,etc -->
+<% layout("/layouts/boilerplate") %>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br><br>
+            <h3>Create a new lising</h3>
+            <form method="POST" action="/listings" novalidate  class="row g-3 needs-validation"   enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" placeholder="Add a catchy  title" type="text" class="form-control" required> 
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
+                    <div class="invalid-feedback">Please enter a short description.</div> 
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input name="listing[image]" placeholder="enter image url/link" type="text" class="form-control"> 
+                </div> -->
+                <!-- lecture 7 phase 3 part a -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Lisitng Image</label>
+                    <input name="listing[image]"  type="file" class="form-control"> 
+                    required
+                </div>
+
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" placeholder="1200"  class="form-control" required> 
+                        <div class="invalid-feedback">Please enter a valid price.</div>
+                    </div>
+                    
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                         <input name="listing[country]" placeholder="India" type="text" class="form-control" required> 
+                        <div class="invalid-feedback">Please enter your country.</div>
+                    </div>
+                    
+                </div> 
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" placeholder="jaipur,Rajasthan" type="text" class="form-control" required> 
+                    <div class="invalid-feedback">Please enter your location  .</div>
+                </div>  
+                
+
+                <!-- creating the lisitng part linking to backened part lecture 3 part c phase 3 -->
+                 <div class="mb-3">
+                    <label for="category">Category</label>
+                    <!-- If you wrote just name="category" by mistake, it won’t match listingSchema.listing.category.it should be "listing[category]" -->
+                   <select class="form-select" name="listing[category]" required>
+                        <option value="Trending">Trending</option>
+                        <option value="Cities">Cities</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Iconic Cities">Iconic Cities</option>
+                        <option value="Castel">Castel</option>
+                        <option value="Amazing Pools">Amazing Pools</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Nature">Nature</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Snow Adventures">Snow Adventures</option>
+                        <option value="Historical">Historical</option>
+                        <option value="Urban Escapes">Urban Escapes</option>
+                        <option value="Luxury Stays">Luxury Stays</option>
+                        <option value="Wildlife">Wildlife</option>
+                        <option value="Waterfront">Waterfront</option>
+
+                        <!-- Add any more you want -->
+                    </select>
+                </div>
+
+                <button class="btn btn-dark">Add</button>
+            </form>
+        </div>
+    </div>    
+ 

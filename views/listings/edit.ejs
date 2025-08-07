@@ -1,0 +1,82 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wander lust</title>
+</head>
+<body>-->
+    <!-- lecture 8 :creaed a edit page that has all the previuos ingfo and wdit ion it then we have to submit -->
+     <!-- we also have to install method override package -->
+      <!-- method override -->
+     <!-- <h3>Create a new lising</h3>
+         <form method="POST" action="/listings/<%= listing._id%>?_method=PUT">
+        <input name="listing[title]" value="<%= listing.title %>" type="text">  
+        <br><br>
+        <textarea name="listing[description]" ><%= listing.description %></textarea>
+        <br><br>
+        <input name="listing[image]" placeholder="enter image url/link" type="text">
+        <br><br>
+        <input name="listing[price]" value="<%= listing.price %>" type="number">
+        <br><br>
+        <input name="listing[location]" value="<%= listing.price %>" type="text">
+        <br><br>
+         <input name="listing[country]" value="<%= listing.country %>" type="text">
+        <br><br>
+        <button>Add</button>
+    </form>
+</body>
+</html>  -->
+<% layout("/layouts/boilerplate") %>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br><br>
+            <h3>Edit your listing</h3>
+            <form method="POST" action="/listings/<%= listing._id%>?_method=PUT" novalidate  class="row g-3 needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required> 
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Please enter a short description.</div>
+                </div>  
+
+                <!-- image preview option lecture2 phase 3 part b -->
+                <div class="mb-3">
+                    Original Lisiting Image <br>
+                    <img src="<%=originalImageUrl%>" >
+                </div>
+
+                <!-- now we wantot upload a img in file lecture1 phase3 part b -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload a New Image</label>
+                    <input name="listing[image]"  type="file" class="form-control" >
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required>
+                        <div class="invalid-feedback">Please enter a valid price.</div>
+                    </div>
+                    
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                         <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
+                         <div class="invalid-feedback">Please enter your country.</div> 
+                    </div>
+                    
+                </div> 
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required> 
+                    <div class="invalid-feedback">Please enter your location.</div>
+                </div>   
+                <button class="btn btn-dark edit-btn">Add</button>
+            </form>
+        </div>
+    </div>   
+

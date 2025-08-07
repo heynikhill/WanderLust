@@ -1,0 +1,27 @@
+
+<% if(success && success.length) { %>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= success %>
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+        ></button>    
+    </div>
+<% } %>
+
+<!-- lecture 10 project pahse 2 part c=>for flash message with style -->
+
+<% if(error && error.length) { %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= error %>
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+        ></button>    
+    </div>
+<% } %>
+<!-- lecture 11 project pahse 2 part c=>for flash message for when a deleted listings is research -->
